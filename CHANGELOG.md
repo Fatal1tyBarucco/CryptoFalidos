@@ -1,5 +1,17 @@
 
 
+## 0.0.38
+
+Minor release with many small,
+but great improvements 👏..
+
+<!-- Release notes generated using configuration in .github/release.yml at 0.0.38 -->
+
+
+
+**Full Changelog**: https://github.com/Fatal1tyBarucco/CryptoFalidos/compare/0.0.37...0.0.38
+
+
 ## 0.0.37
 
 Minor release with many small,
