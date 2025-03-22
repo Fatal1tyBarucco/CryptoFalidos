@@ -1,5 +1,21 @@
 
 
+## 0.0.34
+
+Minor release with many small,
+but great improvements 👏..
+
+<!-- Release notes generated using configuration in .github/release.yml at 0.0.34 -->
+
+## What's Changed
+### 👒 Dependencies
+* Build(deps-dev): bump husky from 9.1.6 to 9.1.7 by @dependabot in https://github.com/Fatal1tyBarucco/CryptoFalidos/pull/77
+* Build(deps): bump codecov/codecov-action from 4.6.0 to 5.1.2 by @dependabot in https://github.com/Fatal1tyBarucco/CryptoFalidos/pull/83
+
+
+**Full Changelog**: https://github.com/Fatal1tyBarucco/CryptoFalidos/compare/0.0.33...0.0.34
+
+
 ## 0.0.33
 
 Minor release with many small,
