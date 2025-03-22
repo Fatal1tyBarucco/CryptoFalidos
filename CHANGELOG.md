@@ -1,5 +1,20 @@
 
 
+## 0.0.31
+
+Minor release with many small,
+but great improvements 👏..
+
+<!-- Release notes generated using configuration in .github/release.yml at 0.0.31 -->
+
+## What's Changed
+### 👒 Dependencies
+* Build(deps-dev): bump prettier-plugin-apex from 2.1.5 to 2.2.2 by @dependabot in https://github.com/Fatal1tyBarucco/CryptoFalidos/pull/70
+
+
+**Full Changelog**: https://github.com/Fatal1tyBarucco/CryptoFalidos/compare/0.0.30...0.0.31
+
+
 ## 0.0.30
 
 Minor release with many small,
