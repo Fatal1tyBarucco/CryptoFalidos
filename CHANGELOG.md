@@ -1,5 +1,20 @@
 
 
+## 0.0.39
+
+Minor release with many small,
+but great improvements 👏..
+
+<!-- Release notes generated using configuration in .github/release.yml at 0.0.39 -->
+
+## What's Changed
+### 👒 Dependencies
+* Build(deps): bump axios from 1.7.7 to 1.8.4 in the npm_and_yarn group by @dependabot in https://github.com/Fatal1tyBarucco/CryptoFalidos/pull/86
+
+
+**Full Changelog**: https://github.com/Fatal1tyBarucco/CryptoFalidos/compare/0.0.38...0.0.39
+
+
 ## 0.0.38
 
 Minor release with many small,
