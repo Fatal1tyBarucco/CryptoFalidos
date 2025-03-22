@@ -1,5 +1,22 @@
 
 
+## 0.0.36
+
+Minor release with many small,
+but great improvements 👏..
+
+<!-- Release notes generated using configuration in .github/release.yml at 0.0.36 -->
+
+## What's Changed
+### 🏕 Features
+* Atualizar o update-changelog.yml by @RBarucco-jr in https://github.com/Fatal1tyBarucco/CryptoFalidos/pull/87
+
+## New Contributors
+* @RBarucco-jr made their first contribution in https://github.com/Fatal1tyBarucco/CryptoFalidos/pull/87
+
+**Full Changelog**: https://github.com/Fatal1tyBarucco/CryptoFalidos/compare/0.0.35...0.0.36
+
+
 ## 0.0.35
 
 Minor release with many small,
