@@ -1,5 +1,21 @@
 
 
+## 0.0.32
+
+Minor release with many small,
+but great improvements 👏..
+
+<!-- Release notes generated using configuration in .github/release.yml at 0.0.32 -->
+
+## What's Changed
+### 👒 Dependencies
+* Build(deps-dev): bump @salesforce/sfdx-lwc-jest from 6.0.0 to 7.0.1 by @dependabot in https://github.com/Fatal1tyBarucco/CryptoFalidos/pull/71
+* Build(deps): bump @eslint/plugin-kit from 0.2.0 to 0.2.3 in the npm_and_yarn group by @dependabot in https://github.com/Fatal1tyBarucco/CryptoFalidos/pull/73
+
+
+**Full Changelog**: https://github.com/Fatal1tyBarucco/CryptoFalidos/compare/0.0.31...0.0.32
+
+
 ## 0.0.31
 
 Minor release with many small,
