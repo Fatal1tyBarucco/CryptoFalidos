@@ -58,7 +58,7 @@
   resolved "https://registry.yarnpkg.com/@babel/compat-data/-/compat-data-7.26.2.tgz#278b6b13664557de95b8f35b90d96785850bb56e"
   integrity sha512-Z0WgzSEa+aUcdiJuCIqgujCshpMWgUpgOxXotrYPSA53hA3qopNaqcJpyr0hVb1FeWdnqFA35/fUtXgBK8srQg==
 
-"@babel/core@7.26.0", "@babel/core@^7.24.4":
+"@babel/core@7.26.0", "@babel/core@^7.11.6", "@babel/core@^7.12.3", "@babel/core@^7.23.9", "@babel/core@^7.24.4":
   version "7.26.0"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.26.0.tgz#d78b6023cc8f3114ccf049eb219613f74a747b40"
   integrity sha512-i1SLeK+DzNnQ3LL/CswPCa/E5u4lh1k6IAEphON8F+cXt0t9euTshDru0q7/IqMa1PMPz5RnHuHscF8/ZJsStg==
@@ -79,7 +79,7 @@
     json5 "^2.2.3"
     semver "^6.3.1"
 
-"@babel/core@^7.11.6", "@babel/core@^7.12.3", "@babel/core@^7.23.9", "@babel/core@~7.24.7":
+"@babel/core@~7.24.7":
   version "7.24.9"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.24.9.tgz#dc07c9d307162c97fa9484ea997ade65841c7c82"
   integrity sha512-5e3FI4Q3M3Pbr21+5xJwCv6ZT6KmGkI0vw3Tozy5ODAQFTIWe37iT8Cr7Ice2Ntb+M3iSKCEWMB1MBgKrW3whg==
@@ -1451,10 +1451,10 @@
   dependencies:
     "@xml-tools/parser" "^1.0.11"
 
-"@salesforce/eslint-config-lwc@^3.6.0":
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/@salesforce/eslint-config-lwc/-/eslint-config-lwc-3.6.0.tgz#a7af99aff1607cfba65e511e823330308d306520"
-  integrity sha512-k6F3LFKl6wvAmK31B/jn8aHtqo+kwl5q96DzhIcmL1qnCZj+AzH5gw9034j+c8279d8u8dC5QIUDU1iE3aCNCg==
+"@salesforce/eslint-config-lwc@^3.7.1":
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/@salesforce/eslint-config-lwc/-/eslint-config-lwc-3.7.1.tgz#f7e2ab9d12b0fb82285159d5ff168e9591e7bbfd"
+  integrity sha512-ds6I/S+HQAXVXamFfdVQotROMJZrGL/dNYwnpLCcsa2FTaTt5jhgQ8E+B2f2+R8/g7xBiU234iuPV+2bxcwQmg==
   dependencies:
     "@babel/core" "~7.24.7"
     "@babel/eslint-parser" "~7.24.7"
