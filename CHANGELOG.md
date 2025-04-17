@@ -1,5 +1,21 @@
 
 
+## 0.0.46
+
+Minor release with many small,
+but great improvements 👏..
+
+<!-- Release notes generated using configuration in .github/release.yml at 0.0.46 -->
+
+## What's Changed
+### 👒 Dependencies
+* Build(deps-dev): bump prettier-plugin-apex from 2.2.2 to 2.2.6 by @dependabot in https://github.com/Fatal1tyBarucco/CryptoFalidos/pull/94
+* Build(deps-dev): bump lint-staged from 15.2.10 to 15.5.1 by @dependabot in https://github.com/Fatal1tyBarucco/CryptoFalidos/pull/97
+
+
+**Full Changelog**: https://github.com/Fatal1tyBarucco/CryptoFalidos/compare/0.0.44...0.0.46
+
+
 ## 0.0.45
 
 Minor release with many small,
