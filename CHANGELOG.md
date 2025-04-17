@@ -1,5 +1,20 @@
 
 
+## 0.0.42
+
+Minor release with many small,
+but great improvements 👏..
+
+<!-- Release notes generated using configuration in .github/release.yml at 0.0.42 -->
+
+## What's Changed
+### 👒 Dependencies
+* Build(deps-dev): bump eslint-config-prettier from 9.1.0 to 10.1.2 by @dependabot in https://github.com/Fatal1tyBarucco/CryptoFalidos/pull/95
+
+
+**Full Changelog**: https://github.com/Fatal1tyBarucco/CryptoFalidos/compare/0.0.41...0.0.42
+
+
 ## 0.0.41
 
 Minor release with many small,
