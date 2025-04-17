@@ -1,5 +1,20 @@
 
 
+## 0.0.48
+
+Minor release with many small,
+but great improvements 👏..
+
+<!-- Release notes generated using configuration in .github/release.yml at 0.0.48 -->
+
+## What's Changed
+### 🏕 Features
+* [Snyk] Upgrade eslint-config-prettier from 9.1.0 to 10.0.1 by @rbaruccojr in https://github.com/Fatal1tyBarucco/CryptoFalidos/pull/85
+
+
+**Full Changelog**: https://github.com/Fatal1tyBarucco/CryptoFalidos/compare/0.0.47...0.0.48
+
+
 ## 0.0.47
 
 Minor release with many small,
