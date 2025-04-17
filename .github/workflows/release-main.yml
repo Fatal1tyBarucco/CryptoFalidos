@@ -52,6 +52,7 @@ jobs:
       - run: git config --global user.email "barucco@gmail.com"
       - run: git config --global user.name "Renato Barucco"
       - run: npm version patch -m '${{ steps.release.outputs.next_version }}'
+      - run: git config pull.rebase true   # rebase
       - run: git pull
       - run: git push
       - run: git push -f origin main:Qas
