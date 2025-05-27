@@ -1,5 +1,20 @@
 
 
+## 0.0.53
+
+Minor release with many small,
+but great improvements 👏..
+
+<!-- Release notes generated using configuration in .github/release.yml at 0.0.53 -->
+
+## What's Changed
+### 👒 Dependencies
+* Build(deps): bump codecov/codecov-action from 5.4.2 to 5.4.3 by @dependabot in https://github.com/Fatal1tyBarucco/CryptoFalidos/pull/108
+
+
+**Full Changelog**: https://github.com/Fatal1tyBarucco/CryptoFalidos/compare/0.0.52...0.0.53
+
+
 ## 0.0.52
 
 Minor release with many small,
