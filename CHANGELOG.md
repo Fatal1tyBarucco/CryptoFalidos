@@ -1,5 +1,21 @@
 
 
+## 0.0.51
+
+Minor release with many small,
+but great improvements 👏..
+
+<!-- Release notes generated using configuration in .github/release.yml at 0.0.51 -->
+
+## What's Changed
+### 👒 Dependencies
+* Build(deps-dev): bump eslint-config-prettier from 10.1.2 to 10.1.5 by @dependabot in https://github.com/Fatal1tyBarucco/CryptoFalidos/pull/106
+* Build(deps-dev): bump lint-staged from 15.5.1 to 16.0.0 by @dependabot in https://github.com/Fatal1tyBarucco/CryptoFalidos/pull/107
+
+
+**Full Changelog**: https://github.com/Fatal1tyBarucco/CryptoFalidos/compare/0.0.50...0.0.51
+
+
 ## 0.0.50
 
 Minor release with many small,
