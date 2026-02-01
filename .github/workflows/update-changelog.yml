@@ -34,7 +34,7 @@ jobs:
 
       - id: update_changelog
         name: 🎉 Changelog Update 📄
-        uses: Fatal1tyBarucco/changelog_update@v1
+        uses: tj-actions/changed-files@c65cd883420fd2eb864698a825fc4162dd94482c
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
