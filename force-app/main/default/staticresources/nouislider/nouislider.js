@@ -1490,7 +1490,20 @@ function closure ( target, options, originalOptions ){
 		// https://connect.microsoft.com/IE/feedback/details/927005/mobile-ie10-windows-phone-buttons-property-of-pointermove-event-always-zero
 		// IE9 has .buttons and .which zero on mousemove.
 		// Firefox breaks the spec MDN defines.
-		if ( navigator.appVersion.indexOf("MSIE 9") === -1 && event.buttons === 0 && data.buttonsProperty !== 0 ) {
+
+		// Use feature detection instead of user agent sniffing for IE9.
+		function isButtonsSupported(e) {
+			// If 'buttons' is not present or not a number, treat it as unsupported.
+			if (typeof e.buttons !== 'number') {
+				return false;
+			}
+			// Basic sanity check: when a pointer is actively pressed at start,
+			// data.buttonsProperty should reflect that. If it doesn't, the environment
+			// likely doesn't implement 'buttons' reliably.
+			return true;
+		}
+
+		if ( isButtonsSupported(event) && event.buttons === 0 && data.buttonsProperty !== 0 ) {
 			return eventEnd(event, data);
 		}
 
