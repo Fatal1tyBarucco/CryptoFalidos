@@ -1862,7 +1862,7 @@ function closure ( target, options, originalOptions ){
 			return;
 		}
 
-		// If a formatted number was passed, attemt to decode it.
+		// If a formatted number was passed, attempt to decode it.
 		if ( typeof to === 'number' ) {
 			to = String(to);
 		}
