@@ -4,6 +4,10 @@ on:
   release:
     types: [released]
 
+concurrency:
+  group: update-changelog-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   update-changelog:
     runs-on: ubuntu-latest
@@ -11,21 +15,35 @@ jobs:
       contents: write
 
     steps:
-    - name: 🎉 Changelog Update on main branch 📄
-      uses: Fatal1tyBarucco/changelog_update@main
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-    # Run Source Code Checkout
-    - name: 'Checkout source code'
-      uses: actions/checkout@v6
-      with:
-        token: ${{ secrets.GH_TOKEN }}
-        fetch-depth: 0
-    - run: git config --global user.email "barucco@gmail.com"
-    - run: git config --global user.name "Renato Barucco"
-    - run: git switch main
-    - run: git show-ref
-    - run: git remote -v
-    - run: git branch -vv
-    - run: git pull --rebase -v
+      - name: Set git user
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Ensure main branch checked out
+        run: |
+          git fetch origin main:main --force
+          git checkout main
+          git reset --hard origin/main
+
+      - id: update_changelog
+        name: 🎉 Changelog Update 📄
+        uses: Fatal1tyBarucco/changelog_update@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit & push changelog changes
+        run: |
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update changelog for ${{ github.event.release.tag_name }}" || echo "Commit failed or no changes"
+            git push origin main
+          fi
