@@ -45,6 +45,46 @@
 		return Math.round(value / to) * to;
 	}
 
+	// Detects whether getBoundingClientRect().left includes horizontal scroll offset.
+	// This addresses a Chrome on Android bug without relying on user agent sniffing.
+	var _hasChromeAndroidRectScrollBug;
+	function hasWebkitChromeMobileRectScrollBug() {
+		if ( _hasChromeAndroidRectScrollBug !== undefined ) {
+			return _hasChromeAndroidRectScrollBug;
+		}
+
+		// Guard against non-browser environments or unavailable DOM APIs.
+		if ( typeof document === 'undefined' || !document.createElement ) {
+			_hasChromeAndroidRectScrollBug = false;
+			return _hasChromeAndroidRectScrollBug;
+		}
+
+		var container = document.createElement('div');
+		var child = document.createElement('div');
+
+		container.style.position = 'absolute';
+		container.style.left = '0px';
+		container.style.top = '0px';
+		container.style.width = '100px';
+		container.style.height = '100px';
+		container.style.overflow = 'scroll';
+
+		child.style.width = '200px';
+		child.style.height = '200px';
+
+		container.appendChild(child);
+		(document.body || document.documentElement).appendChild(container);
+
+		container.scrollLeft = 50;
+		var rect = child.getBoundingClientRect();
+
+		(document.body || document.documentElement).removeChild(container);
+
+		// In the buggy behavior, rect.left will include scrollLeft.
+		_hasChromeAndroidRectScrollBug = rect.left !== 0;
+		return _hasChromeAndroidRectScrollBug;
+	}
+
 	// Current position of an element relative to the document.
 	function offset ( elem, orientation ) {
 
@@ -53,10 +93,9 @@
 		docElem = doc.documentElement,
 		pageOffset = getPageOffset();
 
-		// getBoundingClientRect contains left scroll in Chrome on Android.
-		// I haven't found a feature detection that proves this. Worst case
-		// scenario on mis-match: the 'tap' feature on horizontal sliders breaks.
-		if ( /webkit.*Chrome.*Mobile/i.test(navigator.userAgent) ) {
+		// getBoundingClientRect contains left scroll in some WebKit-based mobile browsers.
+		// Use feature detection instead of user agent sniffing.
+		if ( hasWebkitChromeMobileRectScrollBug() ) {
 			pageOffset.x = 0;
 		}
 
