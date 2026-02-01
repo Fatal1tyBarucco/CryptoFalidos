@@ -1311,10 +1311,10 @@
   resolved "https://registry.yarnpkg.com/@prettier-apex/apex-ast-serializer-win32-x64/-/apex-ast-serializer-win32-x64-2.2.6.tgz#17eca6d9cfe438f132bf282d1cc37fc1de6a84b2"
   integrity sha512-liKeEt89l0cJb8mmgy0kU157jV/7FpF8+oUR4Ic4Tu2DainBxDRcBQICBR0+NmKJNUGTY6/MnwFbuld25laNdg==
 
-"@prettier/plugin-xml@^3.1.0":
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/@prettier/plugin-xml/-/plugin-xml-3.4.1.tgz#6c3be1184871a983d08c9f81c8a8796f62a19568"
-  integrity sha512-Uf/6/+9ez6z/IvZErgobZ2G9n1ybxF5BhCd7eMcKqfoWuOzzNUxBipNo3QAP8kRC1VD18TIo84no7LhqtyDcTg==
+"@prettier/plugin-xml@^3.4.2":
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/@prettier/plugin-xml/-/plugin-xml-3.4.2.tgz#ad0b46a6d73ae16cefb744c98c0ccc604c51f98a"
+  integrity sha512-/UyNlHfkuLXG6Ed85KB0WBF283xn2yavR+UtRibBRUcvEJId2DSLdGXwJ/cDa1X++SWDPzq3+GSFniHjkNy7yg==
   dependencies:
     "@xml-tools/parser" "^1.0.11"
 
@@ -2165,10 +2165,10 @@ escodegen@^2.0.0:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-prettier@^10.1.5:
-  version "10.1.5"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-10.1.5.tgz#00c18d7225043b6fbce6a665697377998d453782"
-  integrity sha512-zc1UmCpNltmVY34vuLRV61r1K27sWuX39E+uyUnY8xS2Bex88VV9cugG+UZbRSRGtGyFboj+D8JODyme1plMpw==
+eslint-config-prettier@^10.1.8:
+  version "10.1.8"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-10.1.8.tgz#15734ce4af8c2778cc32f0b01b37b0b5cd1ecb97"
+  integrity sha512-82GZUjRS0p/jganf6q1rEO25VSoHH0hKPCTrgillPjdI/3bgBhAE1QzHrHTizjpRvy6pGAvKjDJtk2pF9NDq8w==
 
 eslint-plugin-compat@^4.0.2:
   version "4.2.0"
@@ -3701,10 +3701,10 @@ prettier-plugin-apex@^2.2.6:
     "@prettier-apex/apex-ast-serializer-linux-x64" "2.2.6"
     "@prettier-apex/apex-ast-serializer-win32-x64" "2.2.6"
 
-prettier@^3.5.3:
-  version "3.5.3"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.5.3.tgz#4fc2ce0d657e7a02e602549f053b239cb7dfe1b5"
-  integrity sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==
+prettier@^3.6.2:
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.6.2.tgz#ccda02a1003ebbb2bfda6f83a074978f608b9393"
+  integrity sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==
 
 pretty-format@^29.7.0:
   version "29.7.0"
