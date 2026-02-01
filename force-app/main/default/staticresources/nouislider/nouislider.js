@@ -1115,7 +1115,8 @@ function closure ( target, options, originalOptions ){
 			}
 
 			// Make sure step isn't 0, which would cause an infinite loop (#654)
-			step = Math.max(step, 0.0000001);
+			var MIN_STEP_SIZE = 0.0000001;
+			step = Math.max(step, MIN_STEP_SIZE);
 
 			// Find all steps in the subrange.
 			for ( i = low; i <= high; i = safeIncrement(i, step) ) {
