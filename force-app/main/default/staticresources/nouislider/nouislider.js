@@ -2129,7 +2129,7 @@ function closure ( target, options, originalOptions ){
 		}
 
 		// Test the options and create the slider environment;
-		var options = testOptions( originalOptions, target );
+		var options = testOptions( originalOptions );
 		var api = closure( target, options, originalOptions );
 
 		target.noUiSlider = api;
