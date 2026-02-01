@@ -26,7 +26,6 @@
                     return console.log("Unknown error");
                 }
             }
-            var result = response.getReturnValue();
             helper.getDatasets(component);
         });
         component.set("v.waiting", true);
