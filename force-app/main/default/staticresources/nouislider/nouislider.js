@@ -1902,8 +1902,11 @@ function closure ( target, options, originalOptions ){
 		if ( index !== scope_Connects.length - 1 ) {
 			h = scope_Locations[index];
 		}
-
 		// Support correctly spelled 'styleOpposite' while remaining backwards compatible
+		var oppositeStyleKey = options.styleOpposite || options.styleOposite || options.style;
+
+
+		scope_Connects[index].style[oppositeStyleKey] = toPct(100 - h);
 		var oppositeStyleKey = options.styleOpposite || options.styleOposite || options.style;
 
 		scope_Connects[index].style[options.style] = toPct(l);
