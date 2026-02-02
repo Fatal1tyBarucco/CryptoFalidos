@@ -1538,9 +1538,15 @@ function closure ( target, options, originalOptions ){
 		function isButtonsSupported(e) {
 			// If 'buttons' is not present or not a number, treat it as unsupported.
 			if (typeof e.buttons !== 'number') {
-				return false;
 			// Basic sanity check: if a button was reported as pressed when the drag
 			// started (data.buttonsProperty !== 0), but 'buttons' now reports 0 while
+			// the move event is still part of that drag sequence, then the environment
+			// likely does not implement 'buttons' reliably and we should not rely on it.
+			if (typeof data.buttonsProperty === 'number' &&
+				data.buttonsProperty !== 0 &&
+				e.buttons === 0) {
+				return false;
+			}
 			// the move event is still part of that drag sequence, then the environment
 			// likely does not implement 'buttons' reliably and we should not rely on it.
 			if (typeof data.buttonsProperty === 'number' &&
