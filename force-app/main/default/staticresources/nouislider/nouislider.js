@@ -118,8 +118,8 @@
 	}
 
 	// Limits a value to 0 - 100
-	function limit ( a ) {
-		return Math.max(Math.min(a, 100), 0);
+	function limit ( value ) {
+		return Math.max(Math.min(value, 100), 0);
 	}
 
 	// Wraps a variable as an array, if it isn't one yet.
