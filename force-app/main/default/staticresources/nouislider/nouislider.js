@@ -914,7 +914,6 @@
 		parsed.styleOpposite = styles[parsed.dir ? 0 : 1][parsed.ort];
 		// Keep misspelled alias for backwards compatibility, if used elsewhere.
 		parsed.styleOposite = parsed.styleOpposite;
-		parsed.styleOposite = parsed.styleOpposite;
 		parsed.styleOpposite = parsed.styleOposite;
 
 		return parsed;
