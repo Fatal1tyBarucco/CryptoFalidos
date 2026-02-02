@@ -124,8 +124,8 @@
 
 	// Wraps a variable as an array, if it isn't one yet.
 	// Note that an input array is returned by reference!
-	function asArray ( a ) {
-		return Array.isArray(a) ? a : [a];
+	function asArray ( value ) {
+		return Array.isArray(value) ? value : [value];
 	}
 
 	// Counts decimals
