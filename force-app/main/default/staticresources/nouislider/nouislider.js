@@ -35,8 +35,8 @@
 
 	// Removes duplicates from an array.
 	function unique ( array ) {
-		return array.filter(function(a){
-			return !this[a] ? this[a] = true : false;
+		return array.filter(function(item){
+			return !this[item] ? this[item] = true : false;
 		}, {});
 	}
 
