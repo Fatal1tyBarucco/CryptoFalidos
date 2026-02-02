@@ -103,8 +103,8 @@
 	}
 
 	// Checks whether a value is numerical.
-	function isNumeric ( a ) {
-		return typeof a === 'number' && !isNaN( a ) && isFinite( a );
+	function isNumeric ( value ) {
+		return typeof value === 'number' && !isNaN( value ) && isFinite( value );
 	}
 
 	// Sets a class and removes it after [duration] ms.
