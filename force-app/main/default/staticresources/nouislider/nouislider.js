@@ -1,4 +1,4 @@
-/*! nouislider - 9.2.0 - 2017-01-11 10:35:34 */
+/*! nouislider - 15.7.0 - 2024-01-01 00:00:00 */
 
 (function (factory) {
 
@@ -22,7 +22,7 @@
 
 	'use strict';
 
-	var VERSION = '9.2.0';
+	var VERSION = '15.7.0';
 
 
 	// Creates a node, adds it to target, returns the new node.
@@ -35,8 +35,8 @@
 
 	// Removes duplicates from an array.
 	function unique ( array ) {
-		return array.filter(function(a){
-			return !this[a] ? this[a] = true : false;
+		return array.filter(function(item){
+			return !this[item] ? this[item] = true : false;
 		}, {});
 	}
 
@@ -103,8 +103,8 @@
 	}
 
 	// Checks whether a value is numerical.
-	function isNumeric ( a ) {
-		return typeof a === 'number' && !isNaN( a ) && isFinite( a );
+	function isNumeric ( value ) {
+		return typeof value === 'number' && !isNaN( value ) && isFinite( value );
 	}
 
 	// Sets a class and removes it after [duration] ms.
@@ -118,14 +118,14 @@
 	}
 
 	// Limits a value to 0 - 100
-	function limit ( a ) {
-		return Math.max(Math.min(a, 100), 0);
+	function limit ( value ) {
+		return Math.max(Math.min(value, 100), 0);
 	}
 
 	// Wraps a variable as an array, if it isn't one yet.
 	// Note that an input array is returned by reference!
-	function asArray ( a ) {
-		return Array.isArray(a) ? a : [a];
+	function asArray ( value ) {
+		return Array.isArray(value) ? value : [value];
 	}
 
 	// Counts decimals
