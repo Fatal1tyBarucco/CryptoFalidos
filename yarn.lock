@@ -914,15 +914,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@eslint/js@9.39.2":
+"@eslint/js@9.39.2", "@eslint/js@^9.17.0":
   version "9.39.2"
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-9.39.2.tgz#2d4b8ec4c3ea13c1b3748e0c97ecd766bdd80599"
   integrity sha512-q1mjIoW1VX4IvSocvM/vbTiveKC4k9eLrajNEuSsmjymSDEbpGddtpfOoN7YGAqBK3NG+uqo8ia4PDTt8buCYA==
-
-"@eslint/js@^9.17.0":
-  version "9.38.0"
-  resolved "https://registry.yarnpkg.com/@eslint/js/-/js-9.38.0.tgz#f7aa9c7577577f53302c1d795643589d7709ebd1"
-  integrity sha512-UZ1VpFvXf9J06YG9xQBdnzU+kthors6KjhMAl6f4gH4usHyh31rUf2DLGInT8RFYIReYXNSydgPY0V2LuWgl7A==
 
 "@eslint/object-schema@^2.1.7":
   version "2.1.7"
@@ -1454,10 +1449,10 @@
   dependencies:
     "@xml-tools/parser" "^1.0.11"
 
-"@salesforce/eslint-config-lwc@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@salesforce/eslint-config-lwc/-/eslint-config-lwc-4.0.0.tgz#165e41d71b858c6edff1fcf23efd8e4045dbda80"
-  integrity sha512-vLE8f15Eksn1tozVnAqRF+IOMTi3bKZKrR5r14ERyTqOIe3qa+XaWGtlhrT055DXis/0Os9Kh4w0ljlK5Elzcw==
+"@salesforce/eslint-config-lwc@^4.1.2":
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@salesforce/eslint-config-lwc/-/eslint-config-lwc-4.1.2.tgz#795606301842d15daf3553dc817eaaa172ae285d"
+  integrity sha512-GMoXOiqdSLYYuup8i6HWJYIScTGyOdgJCXXNzWb76Xa0RehqViigVAroTYB5OKvp4F5T7OLnGq06dARduphauQ==
   dependencies:
     "@babel/core" "~7.26.0"
     "@babel/eslint-parser" "~7.25.9"
