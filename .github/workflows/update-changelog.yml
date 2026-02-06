@@ -15,35 +15,20 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
+          ref: ${{ github.event.release.target_commitish }}
 
-      - name: Set git user
-        run: |
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor }}@users.noreply.github.com"
-
-      - name: Ensure main branch checked out
-        run: |
-          git fetch origin main:main --force
-          git checkout main
-          git reset --hard origin/main
-
-      - id: update_changelog
-        name: 🎉 Changelog Update 📄
-        uses: tj-actions/changed-files@e0021407031f5be11a464abee9a0776171c79891
+      - name: Update Changelog
+        uses: stefanzweifel/changelog-updater-action@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          latest-version: ${{ github.event.release.tag_name }}
+          release-notes: ${{ github.event.release.body }}
 
-      - name: Commit & push changelog changes
-        run: |
-          git add -A
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "chore: update changelog for ${{ github.event.release.tag_name }}" || echo "Commit failed or no changes"
-            git push origin main
-          fi
+      - name: Commit updated CHANGELOG
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          branch: ${{ github.event.release.target_commitish }}
+          commit_message: Update CHANGELOG
+          file_pattern: CHANGELOG.md
