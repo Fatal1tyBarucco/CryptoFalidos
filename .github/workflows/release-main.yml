@@ -38,8 +38,8 @@ jobs:
               Minor release with many small,
               but great improvements 👏..
           release_notes: true
-          committer_name: Renato Barucco
-          committer_email: barucco@gmail.com
+          committer_name: RBarucco-Jr
+          committer_email: rbaruccojr@gmail.com
       - name: Print the current and next version using outputs
         run: |
           echo 'Current Version:' ${{ steps.release.outputs.current_version }}
@@ -49,8 +49,8 @@ jobs:
         uses: actions/checkout@v6
         with:
           token: ${{ secrets.GH_TOKEN }}
-      - run: git config --global user.email "barucco@gmail.com"
-      - run: git config --global user.name "Baruley"
+      - run: git config --global user.email "rbaruccojr@gmail.com"
+      - run: git config --global user.name "RBarucco-Jr"
       - run: npm version patch -m '${{ steps.release.outputs.next_version }}'
       - run: git config pull.rebase true   # rebase
       - run: git pull
