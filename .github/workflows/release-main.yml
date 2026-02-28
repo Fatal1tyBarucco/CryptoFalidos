@@ -39,17 +39,17 @@ jobs:
               but great improvements 👏..
           release_notes: true
           committer_name: Renato Barucco
-          committer_email: barucco@gmail.com
+          committer_email: baruccco@gmail.com
       - name: Print the current and next version using outputs
         run: |
           echo 'Current Version:' ${{ steps.release.outputs.current_version }}
           echo 'Next Version:' ${{ steps.release.outputs.next_version }}
       # Run Source Code Checkout
       - name: 'Checkout source code'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           token: ${{ secrets.GH_TOKEN }}
-      - run: git config --global user.email "barucco@gmail.com"
+      - run: git config --global user.email "baruccco@gmail.com"
       - run: git config --global user.name "Renato Barucco"
       - run: npm version patch -m '${{ steps.release.outputs.next_version }}'
       - run: git config pull.rebase true   # rebase

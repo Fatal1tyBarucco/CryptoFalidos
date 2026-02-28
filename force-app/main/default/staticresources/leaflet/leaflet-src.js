@@ -1887,7 +1887,7 @@ L.Map = L.Class.extend({
 		    nw = bounds.getNorthWest(),
 		    se = bounds.getSouthEast(),
 
-		    zoomNotFound = true,
+		    zoomNotFound,
 		    boundsSize;
 
 		padding = L.point(padding || [0, 0]);

@@ -4,26 +4,31 @@ on:
   release:
     types: [released]
 
+concurrency:
+  group: update-changelog-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   update-changelog:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
-    - name: 🎉 Changelog Update on main branch 📄
-      uses: Fatal1tyBarucco/changelog_update@main
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.release.target_commitish }}
 
-    # Run Source Code Checkout
-    - name: 'Checkout source code'
-      uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.GH_TOKEN }}
-        fetch-depth: 0
-    - run: git config --global user.email "barucco@gmail.com"
-    - run: git config --global user.name "Renato Barucco"
-    - run: git switch main
-    - run: git show-ref
-    - run: git remote -v
-    - run: git branch -vv
-    - run: git pull --rebase -v
+      - name: Update Changelog
+        uses: stefanzweifel/changelog-updater-action@v1
+        with:
+          latest-version: ${{ github.event.release.tag_name }}
+          release-notes: ${{ github.event.release.body }}
+
+      - name: Commit updated CHANGELOG
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          branch: ${{ github.event.release.target_commitish }}
+          commit_message: Update CHANGELOG
+          file_pattern: CHANGELOG.md

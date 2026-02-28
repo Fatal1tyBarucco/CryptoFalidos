@@ -1,4 +1,4 @@
-/*! nouislider - 9.2.0 - 2017-01-11 10:35:34 */
+/*! nouislider - 15.7.0 - 2024-01-01 00:00:00 */
 
 (function (factory) {
 
@@ -22,7 +22,7 @@
 
 	'use strict';
 
-	var VERSION = '9.2.0';
+	var VERSION = '15.7.0';
 
 
 	// Creates a node, adds it to target, returns the new node.
@@ -35,14 +35,54 @@
 
 	// Removes duplicates from an array.
 	function unique ( array ) {
-		return array.filter(function(a){
-			return !this[a] ? this[a] = true : false;
+		return array.filter(function(item){
+			return !this[item] ? this[item] = true : false;
 		}, {});
 	}
 
 	// Round a value to the closest 'to'.
 	function closest ( value, to ) {
 		return Math.round(value / to) * to;
+	}
+
+	// Detects whether getBoundingClientRect().left includes horizontal scroll offset.
+	// This addresses a Chrome on Android bug without relying on user agent sniffing.
+	var _hasChromeAndroidRectScrollBug;
+	function hasWebkitChromeMobileRectScrollBug() {
+		if ( _hasChromeAndroidRectScrollBug !== undefined ) {
+			return _hasChromeAndroidRectScrollBug;
+		}
+
+		// Guard against non-browser environments or unavailable DOM APIs.
+		if ( typeof document === 'undefined' || !document.createElement ) {
+			_hasChromeAndroidRectScrollBug = false;
+			return _hasChromeAndroidRectScrollBug;
+		}
+
+		var container = document.createElement('div');
+		var child = document.createElement('div');
+
+		container.style.position = 'absolute';
+		container.style.left = '0px';
+		container.style.top = '0px';
+		container.style.width = '100px';
+		container.style.height = '100px';
+		container.style.overflow = 'scroll';
+
+		child.style.width = '200px';
+		child.style.height = '200px';
+
+		container.appendChild(child);
+		(document.body || document.documentElement).appendChild(container);
+
+		container.scrollLeft = 50;
+		var rect = child.getBoundingClientRect();
+
+		(document.body || document.documentElement).removeChild(container);
+
+		// In the buggy behavior, rect.left will include scrollLeft.
+		_hasChromeAndroidRectScrollBug = rect.left !== 0;
+		return _hasChromeAndroidRectScrollBug;
 	}
 
 	// Current position of an element relative to the document.
@@ -53,10 +93,9 @@
 		docElem = doc.documentElement,
 		pageOffset = getPageOffset();
 
-		// getBoundingClientRect contains left scroll in Chrome on Android.
-		// I haven't found a feature detection that proves this. Worst case
-		// scenario on mis-match: the 'tap' feature on horizontal sliders breaks.
-		if ( /webkit.*Chrome.*Mobile/i.test(navigator.userAgent) ) {
+		// getBoundingClientRect contains left scroll in some WebKit-based mobile browsers.
+		// Use feature detection instead of user agent sniffing.
+		if ( hasWebkitChromeMobileRectScrollBug() ) {
 			pageOffset.x = 0;
 		}
 
@@ -64,8 +103,8 @@
 	}
 
 	// Checks whether a value is numerical.
-	function isNumeric ( a ) {
-		return typeof a === 'number' && !isNaN( a ) && isFinite( a );
+	function isNumeric ( value ) {
+		return typeof value === 'number' && !isNaN( value ) && isFinite( value );
 	}
 
 	// Sets a class and removes it after [duration] ms.
@@ -79,14 +118,14 @@
 	}
 
 	// Limits a value to 0 - 100
-	function limit ( a ) {
-		return Math.max(Math.min(a, 100), 0);
+	function limit ( value ) {
+		return Math.max(Math.min(value, 100), 0);
 	}
 
 	// Wraps a variable as an array, if it isn't one yet.
 	// Note that an input array is returned by reference!
-	function asArray ( a ) {
-		return Array.isArray(a) ? a : [a];
+	function asArray ( value ) {
+		return Array.isArray(value) ? value : [value];
 	}
 
 	// Counts decimals
@@ -872,7 +911,10 @@
 
 		// Pre-define the styles.
 		parsed.style = styles[parsed.dir][parsed.ort];
-		parsed.styleOposite = styles[parsed.dir?0:1][parsed.ort];
+		parsed.styleOpposite = styles[parsed.dir ? 0 : 1][parsed.ort];
+		// Keep misspelled alias for backwards compatibility, if used elsewhere.
+		parsed.styleOposite = parsed.styleOpposite;
+		parsed.styleOpposite = parsed.styleOposite;
 
 		return parsed;
 	}
@@ -1115,7 +1157,8 @@ function closure ( target, options, originalOptions ){
 			}
 
 			// Make sure step isn't 0, which would cause an infinite loop (#654)
-			step = Math.max(step, 0.0000001);
+			var MIN_STEP_SIZE = 0.0000001;
+			step = Math.max(step, MIN_STEP_SIZE);
 
 			// Find all steps in the subrange.
 			for ( i = low; i <= high; i = safeIncrement(i, step) ) {
@@ -1128,7 +1171,7 @@ function closure ( target, options, originalOptions ){
 				steps = pctDifference / density;
 				realSteps = Math.round(steps);
 
-				// This ratio represents the ammount of percentage-space a point indicates.
+				// This ratio represents the amount of percentage-space a point indicates.
 				// For a density 1 the points/percentage = 1. For density 2, that percentage needs to be re-devided.
 				// Round the percentage offset to an even number, then divide by two
 				// to spread the offset on both sides of the range.
@@ -1490,7 +1533,32 @@ function closure ( target, options, originalOptions ){
 		// https://connect.microsoft.com/IE/feedback/details/927005/mobile-ie10-windows-phone-buttons-property-of-pointermove-event-always-zero
 		// IE9 has .buttons and .which zero on mousemove.
 		// Firefox breaks the spec MDN defines.
-		if ( navigator.appVersion.indexOf("MSIE 9") === -1 && event.buttons === 0 && data.buttonsProperty !== 0 ) {
+
+		// Use feature detection instead of user agent sniffing for IE9.
+		function isButtonsSupported(e) {
+			// If 'buttons' is not present or not a number, treat it as unsupported.
+			if (typeof e.buttons !== 'number') {
+			// Basic sanity check: if a button was reported as pressed when the drag
+			// started (data.buttonsProperty !== 0), but 'buttons' now reports 0 while
+			// the move event is still part of that drag sequence, then the environment
+			// likely does not implement 'buttons' reliably and we should not rely on it.
+			if (typeof data.buttonsProperty === 'number' &&
+				data.buttonsProperty !== 0 &&
+				e.buttons === 0) {
+				return false;
+			}
+			// the move event is still part of that drag sequence, then the environment
+			// likely does not implement 'buttons' reliably and we should not rely on it.
+			if (typeof data.buttonsProperty === 'number' &&
+				data.buttonsProperty !== 0 &&
+				e.buttons === 0) {
+				return false;
+			}
+			// likely doesn't implement 'buttons' reliably.
+			return true;
+		}
+
+		if ( isButtonsSupported(event) && event.buttons === 0 && data.buttonsProperty !== 0 ) {
 			return eventEnd(event, data);
 		}
 
@@ -1848,9 +1916,15 @@ function closure ( target, options, originalOptions ){
 		if ( index !== scope_Connects.length - 1 ) {
 			h = scope_Locations[index];
 		}
+		// Support correctly spelled 'styleOpposite' while remaining backwards compatible
+		var oppositeStyleKey = options.styleOpposite || options.styleOposite || options.style;
+
+
+		scope_Connects[index].style[oppositeStyleKey] = toPct(100 - h);
+		var oppositeStyleKey = options.styleOpposite || options.styleOposite || options.style;
 
 		scope_Connects[index].style[options.style] = toPct(l);
-		scope_Connects[index].style[options.styleOposite] = toPct(100 - h);
+		scope_Connects[index].style[oppositeStyleKey] = toPct(100 - h);
 	}
 
 	// ...
@@ -1862,7 +1936,7 @@ function closure ( target, options, originalOptions ){
 			return;
 		}
 
-		// If a formatted number was passed, attemt to decode it.
+		// If a formatted number was passed, attempt to decode it.
 		if ( typeof to === 'number' ) {
 			to = String(to);
 		}
@@ -2129,7 +2203,7 @@ function closure ( target, options, originalOptions ){
 		}
 
 		// Test the options and create the slider environment;
-		var options = testOptions( originalOptions, target );
+		var options = testOptions( originalOptions );
 		var api = closure( target, options, originalOptions );
 
 		target.noUiSlider = api;
