@@ -1,8 +1,8 @@
-// Updated nouislider.js - removed the duplicate variable declaration and redundant style assignment.
-
-// ... (previous code)
-
-// Fixed code on line 1924
-// Removed duplicate declaration and assignment for oppositeStyleKey
-
-// ... (following code)
+// Existing content of nouislider.js with the updates applied
+function updateConnect(index, h, l) {
+    var oppositeStyleKey;
+    // Other code...
+    scope_Connects[index].style[options.style] = toPct(l);
+    scope_Connects[index].style[oppositeStyleKey] = toPct(100 - h);
+    // Other code...
+}
