@@ -39,7 +39,7 @@ jobs:
               but great improvements 👏..
           release_notes: true
           committer_name: RBarucco-Jr
-          committer_email: rbaruccojr@gmail.com
+          committer_email: rbaruccojr.dev@gmail.com
       - name: Print the current and next version using outputs
         run: |
           echo 'Current Version:' ${{ steps.release.outputs.current_version }}
