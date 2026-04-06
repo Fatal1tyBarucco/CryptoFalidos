@@ -48,7 +48,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
   # Codecov
   codecov:
@@ -56,7 +56,7 @@ jobs:
     needs: deploy
     steps:
     - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v5.5.2
+      uses: codecov/codecov-action@v6.0.0
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         slug: Fatal1tyBarucco/CryptoFalidos
