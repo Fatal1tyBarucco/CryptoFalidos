@@ -15,7 +15,6 @@
         action.setCallback(this, function(response) {
             component.set("v.waiting", false);
             var state = response.getState();
-            console.log(state);
             if (state === 'ERROR') {
                 var errors = response.getError();
                 if (errors) {
