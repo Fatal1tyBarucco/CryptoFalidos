@@ -15,7 +15,6 @@
         action.setCallback(this, function(response) {
             component.set("v.waiting", false);
             var state = response.getState();
-            console.log(state);
             if (state === 'ERROR') {
                 var errors = response.getError();
                 if (errors) {
@@ -23,6 +22,7 @@
                         return alert(errors[0].message);
                     }
                 } else {
+                    alert("Unknown error");
                     return console.log("Unknown error");
                 }
             }
@@ -33,7 +33,7 @@
     },
     
     datasetChange: function(component, event, helper) {
-		helper.getDatasets(component);        
+        helper.getDatasets(component);        
     }
     
 })
