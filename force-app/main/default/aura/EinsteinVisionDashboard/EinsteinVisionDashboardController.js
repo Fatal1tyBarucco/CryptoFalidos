@@ -23,6 +23,7 @@
                         return alert(errors[0].message);
                     }
                 } else {
+                    alert("Unknown error");
                     return console.log("Unknown error");
                 }
             }
